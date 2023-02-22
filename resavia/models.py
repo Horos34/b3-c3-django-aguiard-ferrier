@@ -4,17 +4,17 @@ import datetime
 from django import forms
 
 class Utilisateur(models.Model):
-  id = models.IntegerField(auto_created=True)
+  id = models.IntegerField(auto_created=True, primary_key=True)
   nom = models.CharField(max_length=255)
   email = models.EmailField(max_length=255)
   mdp = forms.PasswordInput()
   tel = PhoneNumberField(region="FR")
-  date_naissance = datetime.date() # à alimenter pour création date
+  date_naissance = datetime.date(2000,2,20) # à alimenter pour création date
   permis = models.BooleanField(default=False)
   
   
 class Voiture(models.Model):
-  id = models.IntegerField(auto_created=True)
+  id = models.IntegerField(auto_created=True, primary_key=True)
   YEAR_CHOICES = [(r,r) for r in range(1900, datetime.date.today().year+1)]
   V4 = "V4"
   V6 = "V6"
@@ -47,16 +47,16 @@ class Voiture(models.Model):
   version = models.CharField(max_length=50 ,choices=VERSION_CHOICES, null=True)
   
 class Circuit:
-  id = models.IntegerField(auto_created=True)
+  id = models.IntegerField(auto_created=True, primary_key=True)
   nom = models.CharField(max_length=255)
   lieu = models.CharField(max_length=255)
   longueur = models.FloatField()
   
 class Reservation:
-  id = models.IntegerField(auto_created=True)
+  id = models.IntegerField(auto_created=True, primary_key=True)
   nom = models.CharField(max_length=255)
   numResa = models.CharField(max_length=10, auto_created=True)
-  dateResa = datetime.datetime() #à alimenter avec le formulaire
+  dateResa = datetime.datetime(2000,2,20) #à alimenter avec le formulaire
   circuit = models.CharField(max_length=255) #Liste de circuit
   nombrePers = models.IntegerField(default=1)
   voiture = models.CharField(max_length=255)
