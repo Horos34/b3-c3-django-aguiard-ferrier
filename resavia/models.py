@@ -52,13 +52,16 @@ class Circuit:
   lieu = models.CharField(max_length=255)
   longueur = models.FloatField()
   
-class Reservation:
-  id = models.IntegerField(auto_created=True, primary_key=True)
-  nom = models.CharField(max_length=255)
-  numResa = models.CharField(max_length=10, auto_created=True)
-  dateResa = datetime.datetime(2000,2,20) #à alimenter avec le formulaire
-  circuit = models.CharField(max_length=255) #Liste de circuit
-  nombrePers = models.IntegerField(default=1)
-  voiture = models.CharField(max_length=255)
-  resaAcceptee = models.BooleanField(default=None)
+class Reservation(models.Model):
+    nom = models.CharField(max_length=100)
+    prenom = models.CharField(max_length=100)
+    date_reservation = models.DateField()
+    heure_reservation = models.TimeField()
+    niveau_pilote = models.CharField(max_length=100)
+    commentaire = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.nom} {self.prenom} - {self.date_reservation} {self.heure_reservation}"
   

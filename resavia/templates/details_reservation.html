@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Détails de la réservation</h1>
+  <p><strong>Événement:</strong> {{ reservation.event }}</p>
+  <p><strong>Date:</strong> {{ reservation.date }}</p>
+  <p><strong>Heure:</strong> {{ reservation.time }}</p>
+  <p><strong>Nom:</strong> {{ reservation.name }}</p>
+  <p><strong>Email:</strong> {{ reservation.email }}</p>
+  <p><strong>Téléphone:</strong> {{ reservation.phone }}</p>
+  <a href="{% url 'reservation_cancel' pk=reservation.pk %}">Annuler la réservation</a>
+{% endblock %}
