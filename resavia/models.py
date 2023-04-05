@@ -57,7 +57,7 @@ class Reservation(models.Model):
     prenom = models.CharField(max_length=100)
     date_reservation = models.DateField()
     heure_reservation = models.TimeField()
-    niveau_pilote = models.CharField(max_length=100)
+    voiture_souhaite = models.CharField(max_length=100)
     commentaire = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

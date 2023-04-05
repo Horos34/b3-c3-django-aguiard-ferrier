@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Liste des réservations</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Date de réservation</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for reservation in object_list %}
+        <tr>
+          <td>{{ reservation.id }}</td>
+          <td>{{ reservation.nom }}</td>
+          <td>{{ reservation.email }}</td>
+          <td>{{ reservation.date_reservation }}</td>
+          <td><a href="{% url 'reservation_detail' reservation.id %}">Voir détails</a></td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">Aucune réservation n'a été trouvée.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -18,7 +18,7 @@ class ReservationListView(ListView):
 class ReservationCreateView(CreateView):
     model = Reservation
     template_name = 'reservation_create.html'
-    fields = ['nom', 'prenom', 'date_reservation', 'heure_reservation', 'niveau_pilote', 'commentaire']
+    fields = ['nom', 'prenom', 'date_reservation', 'heure_reservation', 'voiture_souhaite', 'commentaire']
     success_url = reverse_lazy('reservation_list')
 
 class ReservationDetailView(DetailView):
@@ -29,7 +29,7 @@ class ReservationDetailView(DetailView):
 class ReservationUpdateView(UpdateView):
     model = Reservation
     template_name = 'reservation_update.html'
-    fields = ['nom', 'prenom', 'date_reservation', 'heure_reservation', 'niveau_pilote', 'commentaire']
+    fields = ['nom', 'prenom', 'date_reservation', 'heure_reservation', 'voiture_souhaite', 'commentaire']
     context_object_name = 'reservation'
 
 class ReservationDeleteView(DeleteView):

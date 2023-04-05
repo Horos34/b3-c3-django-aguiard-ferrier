@@ -8,7 +8,7 @@ class ConnexionForm(forms.Form):
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['nom', 'prenom', 'date_reservation', 'heure_reservation', 'niveau_pilote', 'commentaire']
+        fields = ['nom', 'prenom', 'date_reservation', 'heure_reservation', 'voiture_souhaite', 'commentaire']
         widgets = {
             'date_reservation': forms.TextInput(attrs={'type': 'date'}),
             'heure_reservation': forms.TextInput(attrs={'type': 'time'})
